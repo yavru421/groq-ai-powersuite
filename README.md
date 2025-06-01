@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 Run the application:
 ```bash
-python gradio_ft.py
+python app.py
 ```
 
 The interface will be available at `http://localhost:7860`
