@@ -1,0 +1,12 @@
+# Python cache files
+__pycache__/
+
+# Reference materials
+reference_materials/
+
+# IDE and system files
+.vscode/
+
+# Virtual environment
+venv/
+env/
