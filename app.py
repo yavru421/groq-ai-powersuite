@@ -11,11 +11,17 @@ from cryptography.fernet import Fernet
 from typing import Optional, List
 import speech_recognition as sr
 
-# Initialize Groq client
+# Initialize Groq client with secure key handling
+from cryptography.fernet import Fernet
 key = Fernet.generate_key()
 cipher_suite = Fernet(key)
 api_key_encrypted = None
 groq_client = None
+
+# Set demo credentials for HF Space (if provided)
+DEMO_API_KEY = os.environ.get("GROQ_API_KEY", None)
+if DEMO_API_KEY:
+    initialize_groq_client(DEMO_API_KEY)
 
 def initialize_groq_client(api_key: str):
     """Initialize Groq client with API key"""
@@ -550,10 +556,12 @@ def create_main_interface():
     return demo
 
 # Main function
-def main():
-    """Launch the Gradio application"""
-    demo = create_main_interface()
-    demo.launch(share=False, debug=True)
+# Create the Gradio interface
+demo = create_main_interface()
 
+# Launch for development if run directly
 if __name__ == "__main__":
-    main()
+    demo.launch(debug=True)
+else:
+    # For Hugging Face Spaces
+    demo.launch()
