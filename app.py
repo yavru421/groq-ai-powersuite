@@ -435,12 +435,9 @@ def create_main_interface():
                     # Chat Assistant Tab with modern chat UI
                     with gr.Tab("💭 AI Companion", elem_id="chat-tab"):
                         with gr.Column(elem_classes="input-container"):
-                            gr.HTML('<span class="emoji-icon">🤖</span><h3>Chat with Compound-Beta AI</h3>')
-                            chatbot = gr.Chatbot(
+                            gr.HTML('<span class="emoji-icon">🤖</span><h3>Chat with Compound-Beta AI</h3>')                            chatbot = gr.Chatbot(
                                 height=400,
-                                elem_classes="chatbot",
-                                placeholder="Start a conversation with your AI companion...",
-                                type="messages"  # Use OpenAI-style messages format
+                                elem_classes="chatbot"
                             )
                             with gr.Row():
                                 msg_input = gr.Textbox(
