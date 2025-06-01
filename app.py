@@ -20,6 +20,8 @@ groq_client = None
 def initialize_groq_client(api_key: str):
     """Initialize Groq client with API key"""
     global groq_client
+    if not api_key or api_key.strip() == "":
+        return False
     try:
         groq_client = Groq(api_key=api_key)
         # Test connection
@@ -27,7 +29,11 @@ def initialize_groq_client(api_key: str):
         return True
     except Exception as e:
         groq_client = None
-        print(f"Error initializing Groq client: {str(e)}")
+        error_msg = str(e)
+        if "Invalid API key" in error_msg or "Unauthorized" in error_msg:
+            print("Invalid API key provided. Please check your API key.")
+        else:
+            print(f"Error initializing Groq client: {error_msg}")
         return False
 
 def validate_api_key(api_key: str) -> bool:
@@ -435,7 +441,8 @@ def create_main_interface():
                     # Chat Assistant Tab with modern chat UI
                     with gr.Tab("💭 AI Companion", elem_id="chat-tab"):
                         with gr.Column(elem_classes="input-container"):
-                            gr.HTML('<span class="emoji-icon">🤖</span><h3>Chat with Compound-Beta AI</h3>')                            chatbot = gr.Chatbot(
+                            gr.HTML('<span class="emoji-icon">🤖</span><h3>Chat with Compound-Beta AI</h3>')
+                            chatbot = gr.Chatbot(
                                 height=400,
                                 elem_classes="chatbot"
                             )

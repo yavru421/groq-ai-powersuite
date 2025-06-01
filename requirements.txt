@@ -1,15 +1,15 @@
 gradio==4.19.2
-groq>=0.5.0
+groq==0.5.3
 python-dotenv==1.0.0
-Pillow>=9.0
-PyPDF2>=3.0.0
-python-docx>=0.8.11
-python-pptx>=0.6.21
-pandas>=1.0
+Pillow==10.2.0
+PyPDF2==3.0.1
+python-docx==1.0.1
+python-pptx==0.6.22
+pandas==2.2.0
 json5==0.9.5
-cryptography>=42.0.0
-SpeechRecognition>=3.10.0
-soundfile>=0.12.1
+cryptography==42.0.2
+SpeechRecognition==3.10.1
+soundfile==0.12.1
 # beautifulsoup4
 # google-api-python-client
 # face_recognition
