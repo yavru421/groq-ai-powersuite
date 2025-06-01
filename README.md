@@ -1,3 +1,14 @@
+---
+title: Groq AI PowerSuite
+emoji: 🚀
+colorFrom: blue
+colorTo: indigo
+sdk: gradio
+sdk_version: "4.19.2"
+app_file: app.py
+pinned: false
+---
+
 # 🚀 Groq AI PowerSuite
 
 A powerful and modern web interface for interacting with Groq's AI capabilities, featuring a suite of intelligent tools for text, document, image, and audio processing.
